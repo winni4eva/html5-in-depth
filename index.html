@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Tell Internet Explorer To Use The Latest Version Possible -->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- The initial width of the page should be equal to the device width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- No Type Attribute Required In Html5, Only required for external styles. css is the default-->
+        <style></style>
+
+        <!-- No Type Attribute Required In Html5, Only required for external styles. jabascript is the default -->
+        <script></script>
+    </head>
+    <body>
+        <!-- We can have only one main element on each HTML5 page -->
+        <main>
+            <header>
+                <!-- For Navigation within this site, no external links -->
+                <nav></nav>
+
+                <!-- Links can enclose block level elements -->
+                <a>
+                    <div>
+                        <button></button>
+                        <span></span>
+                    </div>
+                </a>
+            </header>
+            <!-- You can have more than one article element, tells search engines where to find the most important -->
+            <article>
+                <!-- 
+                    Before HTML5 you could only have one h1 element on a page in order to achieve high indexing by search engines. 
+                    With the introduction of the new elemnets which add semantic meanings to parts of our page we can have h1 in the header, footer etc.
+                    So in this case this h1 represents the main header for the article element 
+                -->
+                <h1></h1>
+                <h2></h2>
+
+                <!-- 
+                    The practical application between a section and a div is basically similar. But you will usually use divs
+                    when you need to change the styling for a section of a page. You use sections when you want to create a logically group
+                    between elements but it doesn't have an effect on the final ui 
+                 -->
+                <section>
+                    <a>
+                        <figure>
+                            <img src="">
+                            <figcaption></figcaption>
+                        </figure>
+                    </a>
+                </section>
+
+                <div>
+                    <p></p>
+                    <aside>
+                        <!-- 
+                            Opens the details element by default. In xhtml each attribute had to have a value set, but its not the case with HTML5  
+                        -->
+                        <details open>
+                            <summary>Features</summary>
+                            <ul>
+                                <li>item 1</li>
+                                <li>item 2</li>
+                            </ul>
+                        </details>
+                    </aside>
+                </div>
+
+                <section>
+                    <!-- The video element also exposes attributes that do not require values -->
+                    <video controls loop preload="auto" poster="img/winni.png" width="900">
+                        <source src="media/winni.mp4">
+                        <source src="media/winni2.ogv">
+                        <source src="media/winni3.webm">
+                        <p>This browser does not support native video</p>
+                    </video>
+                </section>
+
+                <time datetime="2016-07-27T13:25:23-8:00" pubdate>July 27<sup>th</sup>, 2016</time>
+            </article>
+
+            <footer>
+                <div class="container">
+
+                </div>
+            </footer>
+        </main>
+        
+        <!-- Type is required because we are referencing an external document -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" type="text/javascript"></script>
+    </body>
+</html>
