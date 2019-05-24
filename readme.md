@@ -1,6 +1,6 @@
 #HTML5 IN DEPTH
 
-### New Elements
+## New Elements
 - article
     ```
     This can be found within a main element and tells search engines that the content 
@@ -124,7 +124,7 @@
     ```
 
 
-### Example HTML5
+## Example HTML5
 ```
 <html>
     <body>
@@ -144,7 +144,7 @@
 </html>
 ```
 
-### JAVSCRIPT API's
+## JAVSCRIPT API's
 * Graphics & Typography
     - Canvas 
         ```
@@ -200,11 +200,11 @@
     - Promises
     - Service Workers (Replaces the previous application cache Api) Helps if you need your site to work offline
 
-### Mordinizr
+## Mordinizr
 A Javascript library that helps you detect browser support for HTML5 features when developing web applications.
 This helps in giving the end user feedback so they know why they may be facing specific issues rendering pages
 
-### Fallback & Polyfills
+## Fallback & Polyfills
 * Fallback - A third party implementation of an HTML5 api. The api's these provide are different compared to what is 
 provided by HTML5 but you get the same functionality
 
@@ -212,7 +212,7 @@ provided by HTML5 but you get the same functionality
 remove a polyfill once there is browser support for a specific feature. Requires regirous testing though to switch safely
 
 
-### Selection Api
+## Selection Api
 * getElementByClassName - This was pretty difficult to achieve before the HTML5 selection API. 
                             Using this function, you always get a LIVE result at to the current state of the DOM
 
@@ -286,7 +286,7 @@ VM2181:2 Dual china sinks with Moen faucets
 VM2181:2 Clear frameless shower enclosures
 ```
 
-### GETELEMENTBYCLASSNAME DYNAMIC RESPONSE EXPERIMENT
+## GETELEMENTBYCLASSNAME DYNAMIC RESPONSE EXPERIMENT
 ```
 var dome = document.querySelector("#example-container ul"); //Get dome item
 var domeLiList = document.getElementsByClassName("feature"); // Get all li elements within dome ul element and log the length, 
@@ -303,3 +303,202 @@ console.log(domeLiList.length);
 OUTPUT
 8
 ```
+
+## HTML5 NEW INPUT ELEMENTS
+* color
+    - Enables a color picker. Allows for customizations
+    ```
+        <input type="color" />
+    ```
+* datalist
+    - By default it doesnt display anything on a page unless combined with an input with the list option set to the id of the datalist
+    ```
+        <input list="colors" />
+        <datalist id="colors">
+            <option value="Blue">
+            <option value="Red">
+            <option value="Yellow">
+        </datalist>
+    ``` 
+* date
+    - provides a datepicker for easy date selection. Rendered differently by browsers.
+    ```
+        <input type="date">
+    ```
+* datetime
+    - provides a datepicker for easy date and time selection. Rendered differently by browsers.
+    ```
+        <input type="datetime">
+    ```
+* datetime-local
+    - provides a datepicker for easy date and time selection using your local time. Rendered differently by browsers.
+    ```
+        <input type="datetime-local">
+    ```
+* email
+    - provides an email input option. Helps display email inputs on a keyboard for mobile devices
+    ```
+        <input type="email" />
+    ```
+* month
+    - provides a month date picker.
+    ```
+        <input type="month" />
+    ```
+* number 
+    - provides a number selection with the help of a spinner.
+        ```
+            <input type="number">
+        ```
+* range
+    - renders a slider, giving you control over start, stop and step values
+        ```
+            <input type="range">
+        ```
+* search
+    - Looks like a regular text input with a x to clear the search term.
+        ```
+            <input type="search" />
+        ```
+* tel
+    - provides a tel input option. Helps display phone inputs on a keyboard for mobile devices
+    ```
+        <input type="tel" />
+    ```
+* time
+    - provides a time picker. It comes with a custom mobile visualization
+        ```
+            <input type="month" />
+        ```
+* url
+    - provides a url input option. Helps display url inputs on a keyboard for mobile devices
+    ```
+        <input type="url" />
+    ```
+* week
+    - provides a week date picker.
+        ```
+            <input type="week" />
+        ```
+
+## Form Validation
+
+* Value Missing
+    - If an element with the required attribute has the value attribute empty, this is set to true
+    ```
+        <input type="text" value="" required>
+    ```
+* Type Mismatch
+    - If the value of an element does not match the type of the element, this is set to true
+    ```
+        <input type="url" value="hello" />
+    ```
+* Pattern Mismatch
+    - If the value of an element does not match the regular expression provided in the pattern
+    ```
+        <input type="text" pattern="/^[A-z]+$/" value="123">
+    ```
+* Too Long
+    - Evaluates to true when an elements length is longer than the value in the maxLength attribute
+    ```
+        <input type="text" maxLength="3" value="hello" />
+    ```
+* Range Underflow
+    - Returns true when the ranges value is smaller than the minimum allowed value defined by the min attribute
+    ```
+        <input type="range" min="3" max="5" value="0"/>
+    ```
+* Range Overflow
+    - Returns true when the ranges value is greater than the maximum allowed value defined by the max attribute
+    ```
+        <input type="range" min="3" max="5" value="9"/>
+    ```
+* Step Mismatch
+    - Returns true when a range type input's value is impossible given the step value
+    ```
+        <input type="range" min="5" max="25" step="5" value="8"/>
+    ```
+* Valid 
+    - Returns true when all other validation rules return false. This is how you know you have a valid form on the page
+    ```
+        <input type="range" min="5" max="20" step="5" value="10">
+    ```
+
+## Attributes
+* Autofocus
+    - Can be applied to a single input element on a page. Moves the cursor to that input on page reload
+* Placeholer
+    - Set a hint on the type of information that goes into an input. Reduces the need for labels
+
+## Custom Attributes
+* You can add custom attributes using the data-attribute_name syntax. This allows us to access the elements attribute value in javascript  
+
+
+## Validation With HTML5 Inputs & CSS Pseudo Classes Demo
+```
+    <input type="text" id="username" name="username" pattern="[a-zA-Z ]{5,}" placeholder="username" maxlength="30" required/>
+    <div class="invalid">
+        The required username may only be a series of alphabetical characters
+    </div>
+
+    <input type="email" id="email" name="email" placeholder="email" required />
+    <div class="invalid">
+        The required email address may not include any special characters other than '.' or '@'.
+    </div>
+
+    <style>
+        input:valid + .invalid { /* adjacent sibling selector: look for an element next to the input with class invalid*/ 
+            visibility: hidden;
+        }
+
+        input:invalid + .invalid {
+            visibility: visible;
+        }
+
+        input:required {
+            border-bottom: 2px solid #c33;
+        }
+
+        input:valid {
+            border-bottom: transparent;
+        }
+
+        .invalid {
+            color: #999;
+        }
+    </style>
+```
+
+## HTML5 MEDIA
+* Media Elements
+    - Audio / Video tags
+    - Media Types
+    - Speech Api
+
+* Audio
+    - WAV, MP3, MP4, OGG
+
+* Video
+    - Theora, H.264 (MP4), HEVC (MP4), VP8 (WebM), VP9 (WebM)
+
+NB: Serve your media with the matching content type, varies for each media format
+
+```
+    You can preload video/audio as server loads depending on your server setup [auto, meta, none]
+
+    <video controls loop preload="auto" poster="img/kitchen.png">
+        <source src="media/hello.mp4">
+        <source src="media/hello.ogv">
+        <source src="media/hello.webm">
+        <p>The browser does not support native video</p>
+    </video>
+
+    <audio controls loop>
+        <source src="media/hello.mp3">
+        <source src="media/hello.ogg">
+        <source src="media/hello.wav">
+        <p>The browser does not support native video</p>
+    </audio>
+```
+
+## HTML5 Canvas
