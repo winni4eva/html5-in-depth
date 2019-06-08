@@ -502,3 +502,66 @@ NB: Serve your media with the matching content type, varies for each media forma
 ```
 
 ## HTML5 Canvas
+* Vector Graphics: Can scale to any size. Generated using mathematical formulas
+* Raster Images: They have a fixed dimension, with evry pixel having defined colors. eg jpg, png. They lose quality with resizes
+
+* The html5 canvas gives us a drawing surface to create Raster images
+
+* HTML5 + Javascript Api = Canvas
+* The canvas grid is positioned on the southern positive edges of a cartesian chart
+* Basic Canvas Drawing
+    ```
+        <canvas id="canvas" width="600" height="400"></canvas>
+        context.beginPath();
+        context.moveTo(75, 50);
+        context.lineTo(75, 100);
+        context.lineTo(25, 100);
+        context.fill(); //Closes path and fills object
+    ```
+* Example
+    ```
+        <canvas id="canvas" width="600" height="400"></canvas>
+
+        var canvas, context;
+        canvas = document.getElementById('canvas');
+
+        if (canvas && canvas.getContext) {
+            context = canvas.getContext('2d');
+            context.beginPath();
+            context.moveTo(75, 50);
+            context.lineTo(75, 100);
+            context.lineTo(25, 100);
+            context.fill();
+        }
+    ```
+
+## HTML5 IN DRAG AND DROP
+* You need a drag source and a drop target. BN: You must cancel the default behavior on drop targets in order to allow the drop action to execute
+    ```
+        var drop = function (e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            } 
+            // Handle drop here
+            return false;
+        }
+    ```
+* List of Events asscoiated with drag source or drop target
+    ```
+        - dragover
+        - drag
+        - dragend
+        - dragstart
+        - dragleave
+        - drop
+        - dragenter
+    ```
+* Markup NB: Links are automatically set to be draggable
+    ```
+        <div id="source-container" data-role="drag-drop-target">
+            <img id="home-snapshot" draggable="true" class="img-responsive" src="img/home.jpg">
+        </div>
+
+        <div id="target-container" data-role="drag-drop-target">
+        </div>
+    ```
